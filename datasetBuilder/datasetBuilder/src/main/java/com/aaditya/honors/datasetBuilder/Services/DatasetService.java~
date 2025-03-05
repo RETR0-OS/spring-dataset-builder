@@ -1,0 +1,14 @@
+package com.aaditya.honors.datasetBuilder.Services;
+
+import com.aaditya.honors.datasetBuilder.Models.Dataset;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DatasetService {
+
+    public void add_dataset(Dataset dataset) {
+
+    }
+
+}

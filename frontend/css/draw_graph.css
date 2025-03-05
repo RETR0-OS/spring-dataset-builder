@@ -1,0 +1,14 @@
+#graphCanvas:hover {
+    cursor: crosshair !important;
+}
+
+#circularcursor {
+    background-color: transparent;
+    border: 1px solid black;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none; /* Ensure the cursor does not interfere with mouse events */
+}

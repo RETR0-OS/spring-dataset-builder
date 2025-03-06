@@ -27,6 +27,8 @@ let colors = ["rgba(255, 0, 0, ", "rgba(0, 255, 0, ", "rgba(0, 0, 255, ", "rgba(
 
 let dataset_settings = JSON.parse(sessionStorage.getItem("dataset_settings"));
 
+let backend_url = "http://localhost:8080";
+
 function load_data_options() {
     if (!dataset_settings || !dataset_settings.numeric_variables || !dataset_settings.categorical_variables) {
         return;
@@ -222,7 +224,14 @@ function submitDataset(){
         request.categorical_keys = reverse_map;
     }
     request["scales"] = scales;
-    console.log(request);
+    fetch(`${backend_url}/api/v1/datasets/add/new/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(request),
+    }).then((response) => response.json()).then((json) => console.log(json));
+    // console.log(request);
 
 }
 

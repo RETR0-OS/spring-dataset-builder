@@ -60,7 +60,6 @@ public class DatasetController {
             if(numerical_col_names.size() >= 3) {
                 Double raw_radius = point_radius.get(i);
                 ArrayList<Double> scale = scales.get(2);
-                //point_radius = 5 + ((numeric_1.value * 9.5) / (numeric_1.max - numeric_1.min)); //Sets point radius to be between 5 and 100.
                 double value = (raw_radius-5) * ((scale.get(1) - scale.get(0)) / 9.5);
                 data_line.append(",").append(value);
             }
@@ -68,7 +67,6 @@ public class DatasetController {
                 String bg_color_line = bg_color.get(i);
                 Matcher matcher = pattern.matcher(bg_color_line);
                 String opacity = matcher.group(1);
-                //opacity = (numeric_2.value - numeric_2.min) / (numeric_2.max - numeric_2.min); //Sets opacity to be between 0 and 1.
                 double value = (Double.parseDouble(opacity) * (scales.get(3).get(1) - scales.get(3).get(0))) + scales.get(3).get(0);
                 data_line.append(",").append(opacity);
             }
@@ -88,7 +86,6 @@ public class DatasetController {
         datasetService.add_dataset(newDataset);
 
         return "Dataset created successfully";
-
 
     }
 

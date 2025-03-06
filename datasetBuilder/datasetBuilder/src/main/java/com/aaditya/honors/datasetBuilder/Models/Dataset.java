@@ -73,6 +73,10 @@ public class Dataset {
         this.data = data;
     }
 
+    public String getDataCard(){
+        return "{name:" + name + ", description:" + description + '}';
+    }
+
     public String toString() {
         return "Dataset{" + "id=" + id + ", name=" + name + ", description=" + description + ", headers=" + headers + ", data=" + data + '}';
     }

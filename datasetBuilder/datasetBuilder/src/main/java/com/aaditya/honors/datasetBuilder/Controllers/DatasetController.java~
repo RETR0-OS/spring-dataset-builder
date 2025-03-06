@@ -82,7 +82,7 @@ public class DatasetController {
 
         datasetService.add_dataset(newDataset);
 
-        return "{'message':'Dataset created successfully'}";
+        return "{message:Dataset created successfully}";
 
     }
 

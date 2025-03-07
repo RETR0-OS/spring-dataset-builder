@@ -1,18 +1,20 @@
 package com.aaditya.honors.datasetBuilder.Controllers;
 
-
 import com.aaditya.honors.datasetBuilder.Models.DataPoint;
 import com.aaditya.honors.datasetBuilder.Models.Dataset;
 import com.aaditya.honors.datasetBuilder.Models.DatasetTransferObj;
 import com.aaditya.honors.datasetBuilder.Services.DatasetService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import java.util.ArrayList;
 
 @RestController
@@ -27,7 +29,7 @@ public class DatasetController {
     DatasetService datasetService;
 
     @PostMapping("/add/new/")
-    public String create_dataset(@RequestBody DatasetTransferObj request) {
+    public ResponseEntity<Map<String, String>> create_dataset(@RequestBody DatasetTransferObj request) {
         Dataset newDataset = new Dataset();
 
         newDataset.setName(request.getDataset_title());
@@ -82,8 +84,35 @@ public class DatasetController {
 
         datasetService.add_dataset(newDataset);
 
-        return "{message:Dataset created successfully}";
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Dataset added successfully");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
 
+    }
+
+    @GetMapping("/list/all/")
+    public ResponseEntity<Map<String, List<Dataset>>> get_datasets(){
+        Map<String, List<Dataset>> response = new HashMap<>();
+        response.put("datasets", datasetService.get_datasets());
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Map<String, Dataset>> get_dataset(@PathVariable long id){
+        Map<String, Dataset> response = new HashMap<>();
+        Dataset dataset = datasetService.get_dataset(id);
+        if(dataset == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        response.put("dataset", dataset);
+        return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Map<String, String>> delete_dataset(@PathVariable long id){
+        String result = datasetService.delete_dataset(id);
+        if(result == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Dataset deleted successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 

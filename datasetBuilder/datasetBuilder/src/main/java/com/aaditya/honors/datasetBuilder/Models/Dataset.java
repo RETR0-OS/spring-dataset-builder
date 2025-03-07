@@ -1,5 +1,9 @@
 package com.aaditya.honors.datasetBuilder.Models;
+import com.aaditya.honors.datasetBuilder.Views.DatasetView;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "datasets")
@@ -7,13 +11,19 @@ public class Dataset {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(DatasetView.DatasetCard.class)
     private long id;
 
+    @JsonView(DatasetView.DatasetCard.class)
     private String name;
+    @JsonView(DatasetView.DatasetCard.class)
     private String description;
+
+    @JsonView(DatasetView.DatasetFull.class)
     private String headers;
 
     @Column(columnDefinition = "TEXT")
+    @JsonView(DatasetView.DatasetFull.class)
     private String data;
 
     public Dataset() {
@@ -73,9 +83,6 @@ public class Dataset {
         this.data = data;
     }
 
-    public String getDataCard(){
-        return "{name:" + name + ", description:" + description + '}';
-    }
 
     public String toString() {
         return "Dataset{" + "id=" + id + ", name=" + name + ", description=" + description + ", headers=" + headers + ", data=" + data + '}';

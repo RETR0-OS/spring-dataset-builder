@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataCanvas - View Dataset</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/view_dataset.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">DataCanvas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-pills">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../help.html">Learn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../build/dataset_builder.html">Create</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dataset View Content -->
+    <div class="container-fluid table-container pb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center mb-4">
+                    <a href="dashboard.html" class="text-white"><button class="btn btn-secondary" id="backBtn">
+                        <i id="backBtn" class="bi bi-chevron-left"></i>
+                    </button></a>
+                    <div class="text-center flex-grow-1">
+                        <h2 id="datasetTitle" class="mb-3">Dataset Name</h2>
+                        <div class="btn-group">
+                            <button class="btn btn-primary m-2" id="downloadBtn">Download Dataset</button>
+                            <button class="btn btn-danger m-2" id="deleteBtn">Delete Dataset</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped" id="datasetTable">
+                        <thead>
+                            <tr id="header-row">
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 text-center">
+            <div class="col-12">
+                <button class="btn btn-primary" id="backBtn">Download</button>
+                <button class="btn btn-danger" id="deleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5 bg-dark text-light fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>DataCanvas</h5>
+                    <p class="small">Building the future of dataset creation</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#" class="text-light">Terms</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-light">Privacy</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/view_dataset_as_table.js"></script>
+</body>
+</html>

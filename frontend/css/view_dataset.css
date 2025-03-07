@@ -1,0 +1,10 @@
+.table-container {
+    margin: 80px 0 100px 0;
+    overflow-x: auto;
+}
+.table {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.table thead {
+    background-color: #f8f9fa;
+}

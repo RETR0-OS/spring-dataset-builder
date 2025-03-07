@@ -24,7 +24,7 @@ function createDatasetCard(dataset) {
                     <p class="card-text">${dataset.description}</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
-                    <button class="btn btn-primary btn-sm">Open</button>
+                    <button class="btn btn-primary btn-sm" onclick=window.location="http://127.0.0.1:5500/frontend/datasets/dashboard/view_dataset.html?id=${dataset.id}">Open</button>
                     <button class="btn btn-outline-danger btn-sm">Delete</button>
                 </div>
             </div>
@@ -37,7 +37,6 @@ function createDatasetCard(dataset) {
 async function loadDatasets() {
     try {
         const datasets = await fetch_datasets();
-        console.log(datasets);
 
         const container = document.getElementById('datasetContainer');
         

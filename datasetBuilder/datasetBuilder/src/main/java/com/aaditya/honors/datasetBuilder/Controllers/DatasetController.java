@@ -7,8 +7,8 @@ import com.aaditya.honors.datasetBuilder.Services.DatasetService;
 import com.aaditya.honors.datasetBuilder.Views.DatasetView;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +21,8 @@ import java.util.regex.Pattern;
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin
-@RequestMapping("api/v1/datasets")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
+@RequestMapping("/api/v1/datasets")
 public class DatasetController {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final String alpha_extractor = "rgba\\(\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*([\\d\\.]+)\\s*\\)";
@@ -101,12 +101,14 @@ public class DatasetController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/get/{id}/")
     @JsonView(DatasetView.DatasetFull.class)
     public ResponseEntity<Map<String, Dataset>> get_dataset(@PathVariable long id){
         Map<String, Dataset> response = new HashMap<>();
         Dataset dataset = datasetService.get_dataset(id);
-        if(dataset == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if(dataset == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         response.put("dataset", dataset);
         return ResponseEntity.ok(response);
     }

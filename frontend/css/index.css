@@ -1,0 +1,8 @@
+.hero-section {
+    min-height: 80vh;
+    background-color: #f8f9fa;
+}
+.feature-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+}

@@ -19,9 +19,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../help.html">Learn</a></li>
                     <li class="nav-item"><a class="nav-link" href="../build/dataset_builder.html">Create</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -38,8 +38,8 @@
                     <div class="text-center flex-grow-1">
                         <h2 id="datasetTitle" class="mb-3">Dataset Name</h2>
                         <div class="btn-group">
-                            <button class="btn btn-primary m-2" id="downloadBtn">Download Dataset</button>
-                            <button class="btn btn-danger m-2" id="deleteBtn">Delete Dataset</button>
+                            <button class="btn btn-primary m-2" id="downloadBtn" onclick="download_dataset()">Download Dataset</button>
+                            <button class="btn btn-danger m-2" id="deleteBtn" onclick="delete_dataset()">Delete Dataset</button>
                         </div>
                     </div>
                 </div>
@@ -59,8 +59,8 @@
         </div>
         <div class="row mt-5 text-center">
             <div class="col-12">
-                <button class="btn btn-primary" id="backBtn">Download</button>
-                <button class="btn btn-danger" id="deleteBtn">Delete</button>
+                <button class="btn btn-primary" id="backBtn" onclick="download_dataset()">Download</button>
+                <button class="btn btn-danger" id="deleteBtn" onclick="delete_dataset()">Delete</button>
             </div>
         </div>
     </div>

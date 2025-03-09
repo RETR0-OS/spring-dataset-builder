@@ -65,4 +65,39 @@ async function loadDataset() {
     }
 }
 
+function download_dataset(){
+    let id = get_query_params('id');
+    if(id == null){
+        throw new Error('No dataset ID provided');
+    }
+    download_url = api_base_url + `v1/datasets/get/${id}/download/`;
+    window.open(download_url, '_blank');
+}
+
+function delete_dataset(){
+    let id = get_query_params('id');
+    if(id == null){
+        throw new Error('No dataset ID provided');
+    }
+    let url = api_base_url + `v1/datasets/delete/${id}`;
+    fetch(url, 
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    ).then(response => {
+        if (response.status == 404) {
+            throw new Error('Dataset not found!');
+        }
+        else if(!response.ok){
+            throw new Error('Error deleting dataset');
+        }
+        return response.json();
+    }).then(
+        window.location.href = 'dashboard.html'
+    )
+}
+
 window.onload = loadDataset;

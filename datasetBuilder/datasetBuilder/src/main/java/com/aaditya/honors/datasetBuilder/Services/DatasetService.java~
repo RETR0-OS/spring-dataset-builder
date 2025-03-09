@@ -42,6 +42,9 @@ public class DatasetService {
         return "Deleted";
     }
 
+    private String generate_uuid(){
+        return UUID.randomUUID().toString();
+    }
 
     public String add_dataset(DatasetTransferObj request) {
         Dataset newDataset = new Dataset();

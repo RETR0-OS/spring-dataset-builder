@@ -137,6 +137,7 @@ function load_tools(){
 }
 
 function brushMode(){
+    updateBrushSize(Number(brush_size.value));
     brushSelected = true;
     eraseSelected = false;
 
@@ -235,6 +236,42 @@ function submitDataset(){
 
 }
 
+function eraseSelectedData(mouseX, mouseY){
+    let data = chart.data.datasets[0].data;
+    let pointRadius = chart.data.datasets[0].pointRadius;
+    let pointStyle = chart.data.datasets[0].pointStyle;
+    let pointBackgroundColor = chart.data.datasets[0].pointBackgroundColor;
+    let pointBorderColor = chart.data.datasets[0].pointBorderColor;
+    let pointBorderWidth = chart.data.datasets[0].pointBorderWidth;
+
+    for (let i = 0; i < data.length; i++) {
+        let x = chart.scales.x.getPixelForValue(data[i].x);
+        let y = chart.scales.y.getPixelForValue(data[i].y);
+
+        let distance = Math.sqrt(Math.pow(x - mouseX, 2) + Math.pow(y - mouseY, 2));
+        if (distance <= erase_size.value) {
+            data.splice(i, 1);
+            pointRadius.splice(i, 1);
+            pointStyle.splice(i, 1);
+            pointBackgroundColor.splice(i, 1);
+            pointBorderColor.splice(i, 1);
+            i--;
+        }
+    }
+}
+
+function eraseMode(){
+    updateBrushSize(Number(erase_size.value));
+    
+    brushSelected = false;
+    eraseSelected = true;
+
+    eraseBtn.classList.remove("btn-outline-danger");
+    eraseBtn.classList.add("btn-danger");
+    brushBtn.classList.remove("btn-primary");
+    brushBtn.classList.add("btn-outline-primary");
+}
+
 // Ensure functions run in the correct order
 load_data_options();
 draw_graph();
@@ -252,6 +289,9 @@ graphCanvas.addEventListener("click", (event) => {
     if (brushSelected){
         let options = calculateNewPoints(event, mouseX, mouseY);
         generateRandomPoints(mouseX, mouseY, options[0], options[1], options[2], options[3], options[4]);
+    }
+    else{
+        eraseSelectedData(mouseX, mouseY);
     }
     chart.update(); // Re-render the chart
 });

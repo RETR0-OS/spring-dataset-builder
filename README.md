@@ -56,7 +56,7 @@ frontend/          - Web interface
 ├── datasets/     - Dataset views
 |      |
 |      |
-|      └── build/ - Build New Dataset Pages
+|      ├── build/ - Build New Dataset Pages
 |      |
 |      └── dashboard/ - Dataset Management Dashboard Pages  
 ├── images/       - Static assets

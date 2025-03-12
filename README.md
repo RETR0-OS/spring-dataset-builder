@@ -53,7 +53,12 @@ datasetBuilder/    - Spring Boot backend
 │           └── application.properties
 frontend/          - Web interface
 ├── css/          - Stylesheets
-├── datasets/     - Dataset views  
+├── datasets/     - Dataset views
+|      |
+|      |
+|      ├── build/ - Build New Dataset Pages
+|      |
+|      └── dashboard/ - Dataset Management Dashboard Pages  
 ├── images/       - Static assets
 └── js/           - JavaScript files
 ```
@@ -101,11 +106,7 @@ GET    /api/v1/datasets/get/{id}/download/ - Download dataset as CSV
 - Chart.js
 
 ## Contributing
-1. Fork the repository
-2. Create feature branch
-3. Commit changes  
-4. Push to branch
-5. Create Pull Request
+This repository does not accept contributions yet as it is a part of the author's school ciriculum. This situation may change in the future after obtaining the neccssary approvals.
 
 ## License
-This project is licensed under the Apache License 2.0
+This project is licensed under the MIT License. Check ```LICENSE``` file for more information.

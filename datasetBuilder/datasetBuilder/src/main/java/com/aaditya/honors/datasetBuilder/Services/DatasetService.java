@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,6 +81,7 @@ public class DatasetService {
             if (numerical_col_names.size() >= 4) {
                 String bg_color_line = bg_color.get(i);
                 Matcher matcher = pattern.matcher(bg_color_line);
+                matcher.find();
                 String opacity = matcher.group(1);
                 double value = (Double.parseDouble(opacity) * (scales.get(3).get(1) - scales.get(3).get(0))) + scales.get(3).get(0);
                 data_line.append(",").append(value);

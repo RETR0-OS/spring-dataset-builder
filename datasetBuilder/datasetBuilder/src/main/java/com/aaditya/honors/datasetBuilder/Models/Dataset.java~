@@ -85,6 +85,6 @@ public class Dataset {
 
 
     public String toString() {
-        return "Dataset{" + "id=" + id + ", name=" + name + ", description=" + description + ", headers=" + headers + ", data=" + data.length() + '}';
+        return "Dataset{" + "id=" + id + ", name=" + name + ", description=" + description + ", headers=" + headers + ", data=" + data + '}';
     }
 }

@@ -53,7 +53,12 @@ datasetBuilder/    - Spring Boot backend
 │           └── application.properties
 frontend/          - Web interface
 ├── css/          - Stylesheets
-├── datasets/     - Dataset views  
+├── datasets/     - Dataset views
+|      |
+|      |
+|      └── build/ - Build New Dataset Pages
+|      |
+|      └── dashboard/ - Dataset Management Dashboard Pages  
 ├── images/       - Static assets
 └── js/           - JavaScript files
 ```

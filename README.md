@@ -104,4 +104,4 @@ GET    /api/v1/datasets/get/{id}/download/ - Download dataset as CSV
 This repository does not accept contributions yet as it is a part of the author's school ciriculum. This situation may chage in the future after obtaining the neccssary approvals.
 
 ## License
-This project is licensed under the Apache License 2.0
+This project is licensed under the MIT License. Check ```LICENSE``` file for more information.

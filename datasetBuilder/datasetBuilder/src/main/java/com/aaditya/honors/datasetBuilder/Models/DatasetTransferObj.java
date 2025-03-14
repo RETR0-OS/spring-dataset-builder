@@ -6,6 +6,9 @@ import com.aaditya.honors.datasetBuilder.Models.DataPoint;
 import java.util.HashMap;
 
 
+
+//This intermediate class is used to transfer data between the frontend and backend
+//This class is modelled after the JSON object sent from the frontend to allow processing of the data before it is sent to the DB.
 public class DatasetTransferObj {
 
     @JsonProperty("dataset_title")

@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 
 
+
+//This class models the Dataset object for the database.
+//It declares the DB schema and the fields for the dataset.
 @Entity
 @Table(name = "datasets")
 public class Dataset {

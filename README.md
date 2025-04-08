@@ -26,8 +26,8 @@ export DB_PASS=your_password
 ```bash
 cd datasetBuilder/datasetBuilder
 mvn clean install
-mvn spring-boot:run
 ```
+Then run the ```DatasetBuilderApplication.java``` in ```com.aaditya.honors.datasetBuilder``` package.
 
 ### Run Frontend
 ```bash

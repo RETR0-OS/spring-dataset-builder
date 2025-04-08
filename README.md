@@ -32,9 +32,8 @@ Then run the ```DatasetBuilderApplication.java``` in ```com.aaditya.honors.datas
 ### Run Frontend
 ```bash
 cd frontend
-# Use any HTTP server, e.g:
-npx http-server 
 ```
+Then open ```index.html``` in any webbrowser of choice.
 
 ## Project Structure
 

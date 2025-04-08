@@ -9,7 +9,6 @@ DataCanvas is an interactive web application for creating multi-dimensional data
 - Java 21 
 - MySQL 8.0+
 - Maven
-- Node.js (for serving frontend)
 
 ### Database Setup
 ```sql

@@ -3,6 +3,11 @@
 ## Project Overview 
 DataCanvas is an interactive web application for creating multi-dimensional datasets through an intuitive paint-like interface. The application consists of a Spring Boot backend and HTML/CSS/JavaScript frontend.
 
+![Picture1](https://github.com/user-attachments/assets/14dd8075-ce7c-4437-8415-cfab1bbbd8ee)
+
+![Picture2](https://github.com/user-attachments/assets/d9ad5772-1a0c-4608-812a-b80705fc094f)
+
+
 ## Installation
 
 ### Prerequisites
